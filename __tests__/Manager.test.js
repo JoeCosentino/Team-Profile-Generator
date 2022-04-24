@@ -2,13 +2,14 @@ const { TestWatcher } = require('jest');
 const Manager = require('../lib/Manager');
 
 test('creates a manager object', () => {
-    const manager = new Manager('Joey');
 
-    expect(manager.name).toBe('Joey');
-    expect(manager.email).toEqual(expect.any(String));
-    expect(manager.employeeId).toEqual(expect.any(String));
-    expect(manager.officeNumber).toEqual(expect.any(String));
+    const testValue = 100;
+    const manager = new Manager("Joey", 1, "test@test.com", testValue);
+    
+    expect(manager.officeNumber).toBe(testValue);
 });
+
+
 
 // expect(potion.name).toEqual(expect.any(String));
 
