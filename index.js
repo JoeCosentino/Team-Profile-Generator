@@ -59,10 +59,6 @@ function getManagerInfo() {
                 }
             }
         }])
-        .then((data) => {
-            console.log(data);
-            return data;
-        })
         .then(({ name, email, employeeId, officeNumber }) => {
             let manager = new Manager(name, email, employeeId, officeNumber);
             employeeArr.push(manager);
@@ -131,7 +127,7 @@ function getEnginnerInfo() {
     },
     {
         type: 'text',
-        name: 'gitHubUserName',
+        name: 'gitHubUsername',
         message: 'what is your GitHub username?',
         validate: engGitHubInput => {
             if (engGitHubInput) {
@@ -141,8 +137,7 @@ function getEnginnerInfo() {
                 return false;
             }
         }
-    }
-    ])
+    }])
     .then(({ name, email, employeeId, gitHubUsername }) => {
         let engineer = new Engineer(name, email, employeeId, gitHubUsername);
         employeeArr.push(engineer);
@@ -193,7 +188,7 @@ function getInternInfo() {
     },
     {
         type: 'text',
-        name: 'gitHubUserName',
+        name: 'gitHubUsername',
         message: 'what is your GitHub username?',
         validate: internGitHubInput => {
             if (internGitHubInput) {
@@ -218,7 +213,7 @@ function finishApp() {
     //generate html
     
     let generateApp = generateTeam(employeeArr);
-    fs.writeFile('index.html', generateApp, err => {
+    fs.writeFile('./dist/index.html', generateApp, err => {
         if(err) {
             console.log(err);
         } else {
@@ -230,6 +225,52 @@ function finishApp() {
 
 getManagerInfo();
 
-function generateTeam(team) {
-    return `<html>hello aerrrryyyyybodddy<html>`;
+function generateTeam() {
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
+`;
+renderCards();
 }
+
+function renderCards() {
+    let data = ''
+    for(let i = 0; i < employeeArr.lenght; i++){
+        if(employeeArr[i].getRole === Manager){
+           data = `<div class="entire-card">
+                        <h1>${employeeArr[i].getName}</h1>
+                        <h3>${employeeArr[i].getRole}</h3>
+                        <div>
+                            <div>${employeeArr[i].getEmployeeId}</div>
+                            <div>${employeeArr[i].getEmail}</div>
+                            <div>${employeeArr[i].getOfficeNumber}</div>
+                        </div>
+                    </div>
+    `
+        }
+        fs.appendFile("./dist/index.html", data, function (err) {
+            if (err) {
+              console.log(err);
+            }
+          });
+    }
+
+}   
+
+// function renderCards() {
+//     employeeArr.forEach(employee) => {
+//       const name = employee.getName();
+//       const role = employee.getRole();
+//       const id = employee.getId();
+//       const email = employee.getEmail();
+//     }
+// }
+
+
