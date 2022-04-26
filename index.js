@@ -226,7 +226,7 @@ function finishApp() {
 getManagerInfo();
 
 function generateTeam() {
-    return `<!DOCTYPE html>
+    let data = `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -236,41 +236,22 @@ function generateTeam() {
     </head>
     <body>
         <main>
-`;
-renderCards();
-}
-
-function renderCards() {
-    let data = ''
-    for(let i = 0; i < employeeArr.lenght; i++){
+` ;for(var i =0; i < employeeArr.length; i++) {
         if(employeeArr[i].getRole === Manager){
-           data = `<div class="entire-card">
-                        <h1>${employeeArr[i].getName}</h1>
-                        <h3>${employeeArr[i].getRole}</h3>
-                        <div>
-                            <div>${employeeArr[i].getEmployeeId}</div>
-                            <div>${employeeArr[i].getEmail}</div>
-                            <div>${employeeArr[i].getOfficeNumber}</div>
-                        </div>
+       return `<div class="entire-card">
+                    <h1>${employeeArr[i].getName}</h1>
+                    <h3>${employeeArr[i].getRole}</h3>
+                    <div>
+                        <div>${employeeArr[i].getEmployeeId}</div>
+                        <div>${employeeArr[i].getEmail}</div>
+                        <div>${employeeArr[i].getOfficeNumber}</div>
                     </div>
-    `
-        }
-        fs.appendFile("./dist/index.html", data, function (err) {
-            if (err) {
-              console.log(err);
-            }
-          });
+                </div>
+`           }
     }
-
-}   
-
-// function renderCards() {
-//     employeeArr.forEach(employee) => {
-//       const name = employee.getName();
-//       const role = employee.getRole();
-//       const id = employee.getId();
-//       const email = employee.getEmail();
-//     }
-// }
-
-
+    fs.appendFile("./dist/index.html", data, function (err) {
+        if (err) {
+          console.log(err);
+        }
+      });
+}
