@@ -5,6 +5,8 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require('fs');
 const employeeArr = [];
+const writeFile = require('./utils/generate-site');
+const generatePage = require('./src/page-template');
 
 function getManagerInfo() {
     return inquirer.prompt([{
@@ -210,48 +212,15 @@ function getInternInfo() {
 
 function finishApp() {
     console.log(employeeArr);
-    //generate html
-    
-    let generateApp = generateTeam(employeeArr);
-    fs.writeFile('./dist/index.html', generateApp, err => {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log('File written successfully!');
-        }
-    })
-
+    generatePage(employeeArr)
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    });
 }
+
+
+
+
+
 
 getManagerInfo();
-
-function generateTeam() {
-    let data = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <main>
-` ;for(var i =0; i < employeeArr.length; i++) {
-        if(employeeArr[i].getRole === Manager){
-       return `<div class="entire-card">
-                    <h1>${employeeArr[i].getName}</h1>
-                    <h3>${employeeArr[i].getRole}</h3>
-                    <div>
-                        <div>${employeeArr[i].getEmployeeId}</div>
-                        <div>${employeeArr[i].getEmail}</div>
-                        <div>${employeeArr[i].getOfficeNumber}</div>
-                    </div>
-                </div>
-`           }
-    }
-    fs.appendFile("./dist/index.html", data, function (err) {
-        if (err) {
-          console.log(err);
-        }
-      });
-}
