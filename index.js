@@ -4,9 +4,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require('fs');
-const employeeArr = [];
+var employeeArr = [];
 const writeFile = require('./utils/generate-site.js');
 const generatePage = require('./page-template.js');
+
 
 function getManagerInfo() {
     return inquirer.prompt([{

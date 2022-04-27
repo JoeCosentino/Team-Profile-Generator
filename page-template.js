@@ -1,18 +1,63 @@
+// let html = '';
+// const generateTeam = (teamData) => {
+//   for(var i = 0; i < teamData.length; i++) {
+//     if (teamData[i].getRole() === 'manager') {
+//       // function to generate 
+//     }
+//   }
+//   // return a string of html that will have all of the cards
+// }
 let html = '';
 const generateTeam = (teamData) => {
+  console.log(teamData);
   for(var i = 0; i < teamData.length; i++) {
-    if (teamData[i].getRole() === 'manager') {
+    if(teamData[i].getRole() === 'manager') {
+      html += `<div class="entire=card">
+  <div class="title">${teamData[i].getName()}</div>
+  <div class="role">${teamData[i].getRole()}</div>
+  <div>
+      <div>${teamData[i].getEmployeeId()}</div>
+      <div>${teamData[i].getEmail()}</div>
+      <div>${teamData[i].getOfficeNumber()}</div
+  </div>
 
+</div>
+` 
+    } 
+    else if (teamData[i].getRole() === 'engineer') {
+      html += `<div class="entire=card">
+  <div class="title">${teamData[i].getName()}</div>
+  <div class="role">${teamData[i].getRole()}</div>
+  <div>
+      <div>${teamData[i].getEmployeeId()}</div>
+      <div>${teamData[i].getEmail()}</div>
+      <div>${teamData[i].getGitHubUsername()}</div
+  </div>
+
+</div>
+`
+    }
+    else if (teamData[i].getRole() === 'intern') {
+      html += `<div class="entire=card">
+  <div class="title">${teamData[i].getName()}</div>
+  <div class="role">${teamData[i].getRole()}</div>
+  <div>
+      <div>${teamData[i].getEmployeeId()}</div>
+      <div>${teamData[i].getEmail()}</div>
+      <div>${teamData[i].getGitHubUsername()}</div
+  </div>
+
+</div>
+` 
     }
   }
-  // return a string of html that will have all of the cards
+  return html;
 }
 
 
 module.exports = teamData => {
     console.log(teamData);
     // write main function of html template
-    // const {Manager, Engineer, Intern} = teamData;
 
         return `<!DOCTYPE html>
         <html lang="en">
@@ -25,15 +70,7 @@ module.exports = teamData => {
         <body>
           <main>
           NOTE: CALL GENERATE TEAM FUNCTION, dont forget to pass in teamData
-            <div class="entire-card">
-                <div>${teamData[i].getName()}</div>
-                <div>${teamData[i].getRole()}</div>
-                <div>
-                    <div>${teamData[i].getEmployeeId()}</div>
-                    <div>${teamData[i].getEmail()}</div>
-                    <div>${teamData[i].getOfficeNumber()}</div>
-                </div>
-            </div>
+            ${generateTeam(teamData)}
           </main>
 
         </body>
