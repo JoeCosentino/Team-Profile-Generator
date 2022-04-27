@@ -5,8 +5,8 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require('fs');
 const employeeArr = [];
-const writeFile = require('./utils/generate-site');
-const generatePage = require('./src/page-template');
+const writeFile = require('./utils/generate-site.js');
+const generatePage = require('./page-template.js');
 
 function getManagerInfo() {
     return inquirer.prompt([{
@@ -211,7 +211,7 @@ function getInternInfo() {
 }
 
 function finishApp() {
-    console.log(employeeArr);
+    // console.log(employeeArr);
     generatePage(employeeArr)
     .then(pageHTML => {
         return writeFile(pageHTML);
