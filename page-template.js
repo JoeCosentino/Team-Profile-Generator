@@ -7,9 +7,9 @@ const generateTeam = (teamData) => {
           <div class="name-text mb-1 text-center">${teamData[i].getName()}</div>
           <div class="role">${teamData[i].getRole()}</div>
           <div>
-              <div>${teamData[i].getEmployeeId()}</div>
+              <div>Employee ID: ${teamData[i].getEmployeeId()}</div>
               <div><a class="email" href="mailto:${teamData[i].getEmail()}">Email: ${teamData[i].getEmail()}</a></div>
-              <div>${teamData[i].getOfficeNumber()}</div>
+              <div>Office Number: ${teamData[i].getOfficeNumber()}</div>
           </div>
       </div>` 
     } 
@@ -20,7 +20,7 @@ const generateTeam = (teamData) => {
           <div class="name-text mb-1 text-center">${teamData[i].getName()}</div>
           <div class="role">${teamData[i].getRole()}</div>
           <div>
-              <div>${teamData[i].getEmployeeId()}</div>
+              <div>Employee ID: ${teamData[i].getEmployeeId()}</div>
               <div><a class="email" href="mailto:${teamData[i].getEmail()}">Email: ${teamData[i].getEmail()}</a></div>
               <div>
                 <a class="github" href="https://github.com/${teamData[i].getGitHubUsername()}" target="_blank">GitHub: ${teamData[i].getGitHubUsername()}</a>
@@ -35,7 +35,7 @@ const generateTeam = (teamData) => {
           <div class="name-text mb-1 text-center">${teamData[i].getName()}</div>
           <div class="role">${teamData[i].getRole()}</div>
           <div>
-              <div>${teamData[i].getEmployeeId()}</div>
+              <div>Employee ID: ${teamData[i].getEmployeeId()}</div>
               <div><a class="email" href="mailto:${teamData[i].getEmail()}">Email: ${teamData[i].getEmail()}</a></div>
               <div>${teamData[i].getSchool()}</div>
           </div>
@@ -63,7 +63,7 @@ module.exports = teamData => {
 
 <body>
    <header class="text-center">MY TEAM</header>
-   <main class="container row d-flex justify-content-center">
+   <main class="container d-flex justify-content-center">
       ${generateTeam(teamData)}
    </main>
 

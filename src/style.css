@@ -4,6 +4,8 @@
 
 main {
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 header {
@@ -24,4 +26,3 @@ header {
     text-decoration: none;
     color: white;
 }
-
