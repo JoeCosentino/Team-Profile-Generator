@@ -142,7 +142,7 @@ function getEnginnerInfo() {
         }
     }])
     .then(({ name, email, employeeId, gitHubUsername }) => {
-        let engineer = new Engineer(name, email, employeeId, gitHubUsername);
+        let engineer = new Engineer(name, employeeId, email, gitHubUsername);
         employeeArr.push(engineer);
 
         getMenuSelection();
@@ -191,20 +191,20 @@ function getInternInfo() {
     },
     {
         type: 'text',
-        name: 'gitHubUsername',
-        message: 'what is your GitHub username?',
-        validate: internGitHubInput => {
-            if (internGitHubInput) {
+        name: 'school',
+        message: 'What school are you currently studying at?',
+        validate: internSchoolInput => {
+            if (internSchoolInput) {
                 return true;
             } else {
-                console.log('Please enter your GitHub username!');
+                console.log('Please enter your school name!');
                 return false;
             }
         }
     }
     ])
-    .then(({ name, email, employeeId, gitHubUsername }) => {
-        let intern = new Intern(name, email, employeeId, gitHubUsername);
+    .then(({ name, email, employeeId, school }) => {
+        let intern = new Intern(name, email, employeeId, school);
         employeeArr.push(intern);
 
         getMenuSelection();
@@ -212,9 +212,7 @@ function getInternInfo() {
 }
 
 function finishApp() {
-    console.log(employeeArr);
     var pageHTML = generatePage(employeeArr);
-    console.log(generatePage(employeeArr))
     writeFile(pageHTML);
 }
 
