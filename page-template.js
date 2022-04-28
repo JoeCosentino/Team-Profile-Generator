@@ -1,54 +1,47 @@
-// let html = '';
-// const generateTeam = (teamData) => {
-//   for(var i = 0; i < teamData.length; i++) {
-//     if (teamData[i].getRole() === 'manager') {
-//       // function to generate 
-//     }
-//   }
-//   // return a string of html that will have all of the cards
-// }
 let html = '';
 const generateTeam = (teamData) => {
-  console.log(teamData);
+  // console.log(teamData);
   for(var i = 0; i < teamData.length; i++) {
     if(teamData[i].getRole() === 'manager') {
-      html += `<div class="entire=card">
-  <div class="title">${teamData[i].getName()}</div>
-  <div class="role">${teamData[i].getRole()}</div>
-  <div>
-      <div>${teamData[i].getEmployeeId()}</div>
-      <div>${teamData[i].getEmail()}</div>
-      <div>${teamData[i].getOfficeNumber()}</div
-  </div>
-
-</div>
-` 
+      html +=  `<div class="card col-12 col-md-6 col-lg-4 mx-2 my-2 bg-dark text-light d-flex justify-content-center align-center">
+          <div class="name-text mb-1 text-center">${teamData[i].getName()}</div>
+          <div class="role">${teamData[i].getRole()}</div>
+          <div>
+              <div>${teamData[i].getEmployeeId()}</div>
+              <div>${teamData[i].getEmail()}</div>
+              <div>${teamData[i].getOfficeNumber()}</div>
+          </div>
+      </div>` 
     } 
     else if (teamData[i].getRole() === 'engineer') {
-      html += `<div class="entire=card">
-  <div class="title">${teamData[i].getName()}</div>
-  <div class="role">${teamData[i].getRole()}</div>
-  <div>
-      <div>${teamData[i].getEmployeeId()}</div>
-      <div>${teamData[i].getEmail()}</div>
-      <div>${teamData[i].getGitHubUsername()}</div
-  </div>
-
-</div>
-`
+      html +=  `
+      
+      <div class="card col-12 col-md-6 col-lg-4 mx-2 my-2 bg-dark text-light d-flex justify-content-center text-center align-center">
+          <div class="name-text mb-1 text-center">${teamData[i].getName()}</div>
+          <div class="role">${teamData[i].getRole()}</div>
+          <div>
+              <div>${teamData[i].getEmployeeId()}</div>
+              <div>Email: ${teamData[i].getEmail()}</div>
+              <div>
+                <a class="github" href="https://github.com/${teamData[i].getGitHubUsername()}" target="_blank">GitHub:${teamData[i].getGitHubUsername()}</a>
+              </div>
+          </div>
+      </div>` 
     }
     else if (teamData[i].getRole() === 'intern') {
-      html += `<div class="entire=card">
-  <div class="title">${teamData[i].getName()}</div>
-  <div class="role">${teamData[i].getRole()}</div>
-  <div>
-      <div>${teamData[i].getEmployeeId()}</div>
-      <div>${teamData[i].getEmail()}</div>
-      <div>${teamData[i].getGitHubUsername()}</div
-  </div>
-
-</div>
-` 
+      html +=  `
+      
+      <div class="card col-12 col-md-6 col-lg-4 mx-2 my-2 bg-dark text-light d-flex justify-content-center text-center align-center">
+          <div class="name-text mb-1 text-center">${teamData[i].getName()}</div>
+          <div class="role">${teamData[i].getRole()}</div>
+          <div>
+              <div>${teamData[i].getEmployeeId()}</div>
+              <div>Email: ${teamData[i].getEmail()}</div>
+              <div>
+                <a class="github" href="https://github.com/${teamData[i].getGitHubUsername()}" target="_blank">GitHub:${teamData[i].getGitHubUsername()}</a>
+              </div>
+          </div>
+      </div>` 
     }
   }
   return html;
@@ -60,31 +53,21 @@ module.exports = teamData => {
     // write main function of html template
 
         return `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-        </head>
-        <body>
-          <main>
-          NOTE: CALL GENERATE TEAM FUNCTION, dont forget to pass in teamData
-            ${generateTeam(teamData)}
-          </main>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/style.css">
+  <title>Document</title>
+</head>
 
-        </body>
-        </html>
+<body>
+   <header class="text-center">MY TEAM</header>
+   <main class="container row d-flex justify-content-center">
+      ${generateTeam(teamData)}
+   </main>
 
-`       
-}
-
-// start return before for loop, define a function for each employee call.
-//  create cards inside functions
-
-
-
-
-
-
-// may need to use es6 if statements
+</body>
+</html>`}

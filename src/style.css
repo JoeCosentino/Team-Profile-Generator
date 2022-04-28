@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+  }
+
+main {
+    padding: 0;
+}
+
+header {
+    padding: 50px;
+    background-color: red;
+    font-size: 58px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+.name-text {
+    font-weight: bold;
+    border-bottom: 1px solid;
+    font-size: larger;
+}
+
+.github, .email {
+    text-decoration: none;
+    color: white;
+}
+
