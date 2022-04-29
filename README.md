@@ -30,6 +30,10 @@ This is a README file for the Team Profile Generator application, completed by J
 
 ![image](./src/images/team%20generator%20SS.PNG)
 
+## Walk-Through Video Demonstration 
+
+* Here is a link for the video demonstration of this application: https://drive.google.com/file/d/1TVmq1zThAijS3z-XiNO3KfPktWpsmEVa/view
+
 ## Licensing
 
 MIT License
