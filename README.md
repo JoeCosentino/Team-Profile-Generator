@@ -5,7 +5,6 @@ This is a README file for the Team Profile Generator application, completed by J
 ## Important Links
 
 * main repository link: https://github.com/JoeCosentino/Team-Profile-Generator
-* active webpage link: https://joecosentino.github.io/Team-Profile-Generator/
 
 ## To Download
 
@@ -25,6 +24,8 @@ This is a README file for the Team Profile Generator application, completed by J
     - assisted in explaining certain HTML and CSS functions
 * AskBCS
     - Provided much assistance and clarification during development of this application
+* Tutor, John Titus
+    - helped clarify concepts of module
 
 ## Screenshot of Assignment
 
