@@ -32,7 +32,7 @@ This is a README file for the Team Profile Generator application, completed by J
 
 ## Walk-Through Video Demonstration 
 
-* Here is a link for the video demonstration of this application: https://drive.google.com/file/d/1TVmq1zThAijS3z-XiNO3KfPktWpsmEVa/view
+* Here is a link for the video demonstration of this application: https://drive.google.com/file/d/19azA9pA6nU-Vgxytu98BxYtUma2pA2io/view
 
 ## Licensing
 
